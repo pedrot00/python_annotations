@@ -1,0 +1,133 @@
+🔹 Entrada e Saída:
+--------------------
+- input()
+- print()
+- f-strings: f"texto {variável}"
+- % formatação: '%s' % nome
+
+🔹 Tipos de Dados:
+--------------------
+- int()
+- str()
+- list()
+- range()
+- bool()
+
+🔹 Operadores:
+--------------------
+- Aritméticos: +, -, *, /, //, %, **
+- Ordem de precedência: ** depois *, /, //, % depois  +, -
+- Booleanos: and, or, not
+- Comparação: ==, !=, <, >, <=, >=
+- Atribuição: =, +=, -=, *=, /=
+- Operador ternário: valor if cond else outro_valor
+
+🔹 Controle de Fluxo:
+--------------------
+- if, elif, else
+- while
+- for item in lista:
+- continue
+- break
+
+🔹 Tratamento de Exceções:
+--------------------
+- try / except
+- try / except ZeroDivisionError
+- finally
+
+🔹 Funções:
+--------------------
+- def nome_funcao(param):
+- return
+- lambda argumentos: expressão
+- type(var) = retorna o tipo de var, se for lista por exemplo: <class 'list> sera o retorno
+
+🔹 Funções úteis:
+--------------------
+- isinstance(var, classe) -> verifica se var é do tipo classe, se for retorna verdadeiro
+- var.isdigit() -> Retorna verdadeiro se a string for formado somente por caracteres numericos
+
+- var = list('AAAAAAA') -> retorno: ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'] agora var é lista
+- var = string1.split('1') -> A variavel var recebe a string 1 em forma de lista separando os elementos quando aparece o '1'
+
+🔹 Escopo de Variáveis:
+--------------------
+- global
+
+🔹 Manipulação de Strings:
+--------------------
+- var.isdigit() ->      verifica se todos os caracters da string sao numeros
+- isalpha() ->          verifica se todos os caracters da string sao letras
+- isalnum() ->          retorna True se a string for constituída somente de letras e números e não estiver vazia.
+- istitle() ->          retorna True se a string for constituída somente de palavras que comecem com uma letra maiúscula seguida somente de letras minúsculas.
+- isspace(), isdecimal(), isalnum() funciona tudo igual
+
+- startswith('texto') e endswith('texto') funcionam analogamente
+- var.iupper() 
+- var.ilower()
+- var.iisupper() ->     retorna true ou false
+- var.iislower()  ->    retorna true ou false
+
+- 'var 'in string ->    retorna true ou false se estiver ou nao na string o valor var
+- join(['texto1', 'texto2', 'texto3]) -> retorna 'texto1, texto2, texto3'
+
+-JUSTIFICANDO TEXTO:
+- "texto".ljust(12, "-") -> depois de "texto" tera uma sequencia de 12x "-" da esquerda pra direita
+- "texto".rjust(12, "-") -> depois de "texto" tera uma sequencia de 12x "-" da direita pra esquerda
+-> 'Hello'.center(20, '=') -> retorna algo como '=======Hello========'
+
+🔹 Listas:
+--------------------
+Suponha a variavel lista = [...]
+- lista.append('algo') -> adiciona 'algo' no final da lista
+- lista.insert(2:'algo') -> Adiciona 'algo' no indice 2 da lista
+- lista.remove(2) -> Remove a primeira ocorrencia de 2 na lista
+- del lista[indice] -> Remove exatamente o elemento naquele indice
+- lista = [item for item in lista if item!= 'A'] -> escreve lista removendo toda ocorrencia de 'A'
+
+- .sort() -> Ordena ordem crescente
+- .sort(reverse= True)-> Ordena ordem decrescente
+- .reverse() -> Inverte a ordem da lista, nao ordena, so inverte, nao retorna nada
+- shuffle() (com random.shuffle)
+
+- copy() -Cria uma nova estrutura, mas os elementos internos ainda apontam para os mesmos objetos da original.
+- deepcopy() (com copy.deepcopy) -Copia tudo, inclusive os elementos internos (recursivamente). 
+ Nada fica compartilhado entre a original e a cópia.
+
+🔹 dicionarios:
+--------------------
+- var.keys() -> retonrna as chaves. Ex de retorno: dict_keys(['0001', '0002', '0003', '0004'])
+- var.value() -> retorna os valores. Ex de retorno: red, 42
+- var.items() -> retorna os itens (tanto chave quanto valores, retorna tudo). Ex de retorno: ('color', 'red')
+
+- var.get('valor1', 'valor2') -> tenta buscar e retornar o valor 1, se nao achar retorna valor2
+- var.setdefautl('valor1', 'valor2') -> Verifica se valor1 é uma chave em var, se nao for ele cria e atribui a ela o valor2
+
+🔹 Estruturas Avançadas:
+--------------------
+- dicionários: dict[key] = value
+- get(): dicionario.get(chave, default)
+
+🔹 Manipulação de Arquivos:
+--------------------
+- open('arquivo.txt')
+- with open(...) as variavel:
+- read()
+
+🔹 Módulos e Bibliotecas:
+--------------------
+- import string
+- string.ascii_uppercase
+
+- import random
+- random.shuffle()
+
+- import copy
+- copy.copy()
+- copy.deepcopy()
+
+🔹 Outras Técnicas e Curiosidades:
+--------------------
+
+- Código ASCII com ord() e chr()
