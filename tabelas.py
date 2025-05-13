@@ -19,11 +19,9 @@ clientes = [
 
 frete = 6.90
 print(f'O momento do frete é de R$ {frete:.2f}')
-try:
-    reajuste = float(input(f'Reajuste desejado para o momento do frete (+/- %): '))
-    frete += (frete * reajuste / 100)
-except ValueError:
-    print("Valor inválido. Mantendo o valor original.")
+
+reajuste = float(input('Reajuste desejado para o momento do frete (+/- %): '))
+frete += (frete * reajuste / 100)
 
 # Cálculo das toneladas por cidade
 toneladas_por_cidade = [0] * len(destino)
@@ -48,10 +46,10 @@ cidade_menor = destino[faturamento_por_cidade.index(menor_faturamento)]
 
 # Impressão do relatório
 print("\nRelatório 1 - Faturamento - Transportadora InovaLOG")
-print("-" * 80)
+print("-" * 90)
 header = f"{'Cliente':<18}" + "".join([f"{city:<15}" for city in destino])
 print(header)
-print("-" * 80)
+print("-" * 90)
 
 for cliente in clientes:
     linha = f"{cliente[0]:<18}"
@@ -59,15 +57,60 @@ for cliente in clientes:
         linha += f"{valor:<15.2f}"
     print(linha)
 
-print("-" * 80)
+print("-" * 90)
 linha_totais = f"{'Total (t)':<18}" + "".join([f"{t:<15.2f}" for t in toneladas_por_cidade])
 print(linha_totais)
 
-print("-" * 80)
+print("-" * 90)
 linha_faturamento = f"{'Total (R$)':<18}" + "".join([f"{f:<15.2f}" for f in faturamento_por_cidade])
 print(linha_faturamento)
 
-print("-" * 80)
+print("-" * 90)
 print(f"Faturamento total: R$ {faturamento_total:.2f}")
 print(f"Destino de maior faturamento: {cidade_maior} (R$ {maior_faturamento:.2f})")
 print(f"Destino de menor faturamento: {cidade_menor} (R$ {menor_faturamento:.2f})")
+
+
+faturamento_por_cliente = [0] * len(clientes)
+for idx, cliente in enumerate(clientes):
+    faturamento = 0
+    for valor in cliente:
+        if isinstance(valor, int):
+            faturamento += valor
+    faturamento_por_cliente[idx] = faturamento
+
+
+valorPago = []  # lista com tuplas (nome, valor total)
+for cliente in clientes:
+
+    toneladas = cliente[1:]
+    total = 0
+    for d, t in zip(distancia, toneladas):
+        total += d * t * frete
+    valorPago.append(total)
+
+idx_maior = valorPago.index(max(valorPago))
+idx_menor = valorPago.index(min(valorPago))
+
+
+
+print("\nRelatório 2 - Clientes - Transportadora InovaLOG")
+print("-" * 130)
+header = f"{'Cliente':<18}" + "".join([f"{city:<18}" for city in destino]) + f"{'Total (t)':<12}{'Total (R$)':<12}"
+print(header)
+print("-" * 130)
+
+for i, cliente in enumerate(clientes):
+    nome = cliente[0]
+    toneladas = cliente[1:]
+    total_toneladas = sum(toneladas)
+    total_valor = valorPago[i]
+    linha = f"{nome:<18}"
+    for t in toneladas:
+        linha += f"{t:<18.2f}"
+    linha += f"{total_toneladas:<12.2f}{total_valor:<12.2f}"
+    print(linha)
+
+print("-" * 130)
+print(f"Cliente responsável pelo menor valor pago: {clientes[idx_menor][0]}")
+print(f"Cliente responsável pelo maior valor pago: {clientes[idx_maior][0]}")

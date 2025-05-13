@@ -88,7 +88,8 @@ Suponha a variavel lista = [...]
 
 - .sort() -> Ordena ordem crescente
 - .sort(reverse= True)-> Ordena ordem decrescente
-- .reverse() -> Inverte a ordem da lista, nao ordena, so inverte, nao retorna nada
+- .reverse() -> Inverte a ordem da lista, nao ordena, so inverte, nao rsetorna nada
+- var = list(reversed(lista))    -> coloca em var "lista" invertida
 - shuffle() (com random.shuffle)
 
 - copy() -Cria uma nova estrutura, mas os elementos internos ainda apontam para os mesmos objetos da original.
